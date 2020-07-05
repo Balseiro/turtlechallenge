@@ -45,8 +45,6 @@ namespace TurtleChallenge
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
-
-            Console.ReadLine();
         }
     }
 }

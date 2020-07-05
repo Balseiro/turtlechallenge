@@ -3,3 +3,5 @@ obj
 /.vs/TurtleChallenge/v16/*.suo
 /.vs/TurtleChallenge/v16/TestStore/0/*.testlog
 /.vs/TurtleChallenge/v16/TestStore/0/*.manifest
+TestResults
+/.vs/TurtleChallenge/config

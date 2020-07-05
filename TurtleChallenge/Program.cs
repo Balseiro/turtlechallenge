@@ -13,24 +13,37 @@ namespace TurtleChallenge
             var gsJson = string.Empty;
             var movesJson = string.Empty;
 
-            using (StreamReader sr = new StreamReader(args[0]))
+            if (args.Length != 2)
             {
-                gsJson = sr.ReadToEnd();
+                Console.WriteLine("2 file names are required to run this: One for settings and another for moves");
+                return;
             }
 
-            using (StreamReader sr = new StreamReader(args[1]))
+            try
             {
-                movesJson = sr.ReadToEnd();
+                using (StreamReader sr = new StreamReader(args[0]))
+                {
+                    gsJson = sr.ReadToEnd();
+                }
+
+                using (StreamReader sr = new StreamReader(args[1]))
+                {
+                    movesJson = sr.ReadToEnd();
+                }
+
+                var moves = JsonConvert.DeserializeObject<List<List<Move>>>(movesJson);
+
+                foreach (var m in moves)
+                {
+                    var gs = JsonConvert.DeserializeObject<GameSettings>(gsJson);
+                    var game = new Game(gs);
+                    var output = game.Start(m);
+                    Console.WriteLine(output);
+                }
             }
-
-            var moves = JsonConvert.DeserializeObject<List<List<Move>>>(movesJson);
-
-            foreach(var m in moves)
+            catch(Exception ex)
             {
-                var gs = JsonConvert.DeserializeObject<GameSettings>(gsJson);
-                var game = new Game(gs);
-                var output = game.Start(m);
-                Console.WriteLine(output);
+                Console.WriteLine($"Error: {ex.Message}");
             }
 
             Console.ReadLine();

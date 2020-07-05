@@ -1,0 +1,5 @@
+[
+	[ {"MoveType": "rotate"}, {"MoveType": "forward"}, {"MoveType": "forward"} ],
+	[ {"MoveType": "rotate"}, {"MoveType": "forward"}, {"MoveType": "rotate"} ],
+	[ {"MoveType": "rotate"}, {"MoveType": "rotate"}, {"MoveType": "rotate"}, {"MoveType": "forward"}, {"MoveType": "rotate"}, {"MoveType": "forward"} ]
+]
